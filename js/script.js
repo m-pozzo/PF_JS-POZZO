@@ -1,5 +1,8 @@
 alert("Bienvenido! \n Esto es una calculadora para calcular:\n-Velocidad a la que vas (m/s) \n-Distancia (metros) que recorriste en base al tiempo y a la velocidad que vas\n-Tiempo (segundos) dependiendo a que velocidad recorriste cierta distancia");
 
+alert("Bienvenido. Esto es un simulador de un restaurante...");
+alert("")
+
 let eleccion = "";
 let opcionValida = false;
 
@@ -47,4 +50,3 @@ function calcularTiempo() {
     let calculoTiempo = distancia / velocidad;
     alert(`El tiempo que tardaste es de ${calculoTiempo} s`);
 }
-

@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
-    <title>¡A calcular! Pre-entrega 1</title>
+    <title>¡A calcular! Pre-entrega 2</title>
 </head>
+
 <body>
-    <header class="text-container">
-        <section class="text-flex">
-            <h1 class="titulo">
-                Bienvenido
-            </h1>
-            <article>
-                <p class="explicacion">
-                    Esta página está hecha para calcular y resolver:
-                </p>
-                <ul class="explicacion">
-                    <li class="explicacion">
-                        A la velocidad que vas (m/s)
-                    </li>
-                    <li class="explicacion">
-                        La distancias que recorriste (m)
-                    </li>
-                    <li class="explicacion">
-                        El tiempo que tardaste (s)
-                    </li>
-                    <li class="explicacion">
-                        Situaciones y problemas de movimiento uniforme
-                    </li>
-                    <li class="explicacion">
-                        Situaciones y problemas de movimiento uniforme con aceleracion
-                    </li>
-                </ul>
-            </article>
-        </section>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="item-grid">
+                <div class="item-flex1">
+                    <li><img src="https://w7.pngwing.com/pngs/425/470/png-transparent-gray-calculator-illustration-brand-logo-font-calculator-rectangle-computer-logo.png"
+                            alt="calculadora" style: height="60px" ; width="60px" ;></li>
+                    <li>PhysicsCalculator</li>
+                </div>
+                <div class="item-flex2">
+                    <li><a href="#velocidadUno"><button>Realizar cálculos</button></a></li>
+                    <li><button id="crearCuenta">Crea tu cuenta</button></li>
+                </div>
+            </ul>
+        </nav>
     </header>
     <main>
-        <section class="butons-container">
-            <article class="boton-grid">
-                <div class="boton-flex">
-                    <button class="boton-start">
-                        Calcular velocidad
-                    </button>
-                </div>
-                <div class="boton-flex">
-                    <button class="boton-start">
-                        Calcular distancia
-                    </button>
-                </div>
-                <div class="boton-flex">
-                    <button class="boton-start">
-                        Calcular tiempo
-                    </button>
-                </div>
+        <section>
+            <article class="velocidad article">
+                <h1>Velocidad</h1>
+                <p>
+                    Para calcular la velocidad se necesita hacer distancia(m)/tiempo(s)
+                    Primero ingrese la distancia y luego el tiempo
+                </p>
+                <input type="text" placeholder="Distancia" id="velocidadUno">
+                <input type="text" placeholder="Tiempo" id="velocidadDos">
+                <button id="calcularV">Calcular</button>
+                </form>
+            </article>
+            <article class="distancia article">
+                <h1>Distancia</h1>
+                <form action="">
+                    <input type="text" placeholder="Velocidad" id="distanciaUno">
+                    <input type="text" placeholder="Tiempo" id="distanciaDos">
+                    <button id="calcularD">Calcular</button>
+                </form>
+            </article>
+            <article class="tiempo article">
+                <h1>Tiempo</h1>
+                <form action="">
+                    <input type="text" placeholder="Distancia" id="tiempoUno">
+                    <input type="text" placeholder="Velocidad" id="tiempoDos">
+                    <button id="calcularT">Calcular</button>
+                </form>
             </article>
         </section>
     </main>
+
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
