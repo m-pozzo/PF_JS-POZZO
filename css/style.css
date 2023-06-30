@@ -13,13 +13,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .text-flex {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    padding-left: 20px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
 }
 
 .butons-container {
