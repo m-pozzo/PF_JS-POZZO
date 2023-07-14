@@ -5,33 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
-    <title>¡A calcular! Pre-entrega 1</title>
 </head>
 
 <body>
-    <header class="text-container">
-        <h1 class="titulo">
-            Bienvenido
-        </h1>
+    <header>
+        <nav class="nav">
+            <ul class="ul-nav">
+                <li class="item-ul"><a href="" class="a-ul">Nosotros</a></li>
+                <li class="item-ul"><a href="" class="a-ul">Platos</a></li>
+                <li class="item-ul"><button id="ver-carrito">🛒</button></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <section class="text-flex">
-            <article><img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNb1c5ZreK3Vm-TgpG0BDp5Wf96_6yCNcMBg&usqp=CAU"
-                    alt="empanadas"></article>
-            <article><img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYz2hA7vzMNhUm518YCBBPThdFUcEyL9ey2Q&usqp=CAU"
-                    alt=""></article>
-            <article><img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdWE7OWzTmjP9P1utbdE5PcQVo6XhHVsipSw&usqp=CAU"
-                    alt=""></article>
-            <article><img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0MT_FEPXrQhHXR0k2JutEr9JKI0UcE4lKkw&usqp=CAU"
-                    alt=""></article>
-        </section>
+        <section id="plate-container" class="grid-cards"></section>
+        <section id="modal-container"></section>
     </main>
+    <footer>
+        <section>
+            <p>elresto@gmail.com</p>
+        </section>
+    </footer>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
