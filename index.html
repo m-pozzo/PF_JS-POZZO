@@ -5,63 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>¡A calcular! Pre-entrega 2</title>
 </head>
 
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <ul class="item-grid">
-                <div class="item-flex1">
-                    <li><img src="https://w7.pngwing.com/pngs/425/470/png-transparent-gray-calculator-illustration-brand-logo-font-calculator-rectangle-computer-logo.png"
-                            alt="calculadora" style: height="60px" ; width="60px" ;></li>
-                    <li>PhysicsCalculator</li>
-                </div>
-                <div class="item-flex2">
-                    <li><a href="#velocidadUno"><button>Realizar cálculos</button></a></li>
-                    <li><button id="crearCuenta">Crea tu cuenta</button></li>
-                </div>
+    <header>
+        <nav class="nav">
+            <ul class="ul-nav">
+                <li class="item-ul"><a href="" class="a-ul">Nosotros</a></li>
+                <li class="item-ul"><a href="" class="a-ul">Platos</a></li>
+                <li class="item-ul"><button id="ver-carrito">🛒</button></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section>
-            <article class="velocidad article">
-                <h1>Velocidad</h1>
-                <p>
-                    Para calcular la velocidad se necesita hacer distancia(m)/tiempo(s)
-                    Primero ingrese la distancia y luego el tiempo
-                </p>
-                <input type="text" placeholder="Distancia" id="velocidadUno">
-                <input type="text" placeholder="Tiempo" id="velocidadDos">
-                <button id="calcularV">Calcular</button>
-                </form>
-            </article>
-            <article class="distancia article">
-                <h1>Distancia</h1>
-                <form action="">
-                    <input type="text" placeholder="Velocidad" id="distanciaUno">
-                    <input type="text" placeholder="Tiempo" id="distanciaDos">
-                    <button id="calcularD">Calcular</button>
-                </form>
-            </article>
-            <article class="tiempo article">
-                <h1>Tiempo</h1>
-                <form action="">
-                    <input type="text" placeholder="Distancia" id="tiempoUno">
-                    <input type="text" placeholder="Velocidad" id="tiempoDos">
-                    <button id="calcularT">Calcular</button>
-                </form>
-            </article>
-        </section>
+        <section id="plate-container" class="grid-cards"></section>
+        <section id="modal-container"></section>
     </main>
+    <footer>
+        <section>
+            <p>elresto@gmail.com</p>
+        </section>
+    </footer>
 
     <script src="./js/script.js"></script>
-    </script>
 </body>
 
 </html>

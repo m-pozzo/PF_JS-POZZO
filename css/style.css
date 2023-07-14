@@ -2,38 +2,143 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Caprasimo', cursive;
 }
 
-body {
-    background-color: #f7f4e8;
-}
-/* 
-.div {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    background-color: rgb(70, 119, 161);
-} */
-
-.navbar {
-    background-color: rgb(255, 150, 51);
-    width: 98.7vw;
-    height: 12vh;
+.nav {
+    width: 100%;
+    height: 10vh;
+    border-bottom: 3px black solid;
 }
 
-.item-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.ul-nav {
+    height: 100%;
+    display: flex;
+    justify-content: end;    
     align-items: center;
+    list-style: none;
 }
 
-.item-flex1 {
+.item-ul {
+    padding: 0 20px;
+    font-size: 1.2rem;
+}
+
+.a-ul {
+    text-decoration: none;
+
+}
+
+#ver-carrito {
+    width: 50px;
+    font-size: 1.5rem;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    margin-top: 24px;
+    gap: 7px;
+}
+
+.menu {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-name: colores;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+p{
+    font-size: 1.1rem;
+}
+
+img {
+    width: 300px;
+    height: 200px;
+    padding-top: 5px;
+}
+
+.info-comida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.boton-carrito {
+    width: 100%;
+    height: 30px;
+    border-radius: 0px;
+}
+
+.boton-carrito:hover {
+    background-color: #ddd;
+}
+
+#modal-container {
+    width: 450px;
+}
+
+.flex-modal {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 1.3rem;
+}
+
+.flex-modal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 5px;
+}
+
+.delete {
+    width: 90%;
+    height: 40px;
+}
+
+footer {
+    height: 15vh;
+    border-top: 3px black solid;
+    margin-top: 24px;
+}
+
+@keyframes colores {
+    0% {
+        border: 2px solid red;
+    }
+    10% {
+        border: 2px solid blue;
+    }
+    20% {
+        border: 2px solid green;
+    }
+    30% {
+        border: 2px solid rgb(29, 137, 205);
+    }
+    40% {
+        border: 2px solid blueviolet;
+    }
+    50% {
+        border: 2px solid darkgoldenrod;
+    }
+    60% {
+        border: 2px solid #b564f3;
+    }
+    80% {
+        border: 2px solid deepskyblue;
+    }
+    100% {
+        border: 2px solid yellow;
+    }
 }
 .item-flex2 {
     display: flex;

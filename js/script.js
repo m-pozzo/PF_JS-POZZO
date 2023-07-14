@@ -1,52 +1,107 @@
-alert("Bienvenido! \n Esto es una calculadora para calcular:\n-Velocidad a la que vas (m/s) \n-Distancia (metros) que recorriste en base al tiempo y a la velocidad que vas\n-Tiempo (segundos) dependiendo a que velocidad recorriste cierta distancia");
+let carrito = [];
 
-alert("Bienvenido. Esto es un simulador de un restaurante...");
-alert("")
-
-let eleccion = "";
-let opcionValida = false;
-
-
-while (!opcionValida) {
-    let eleccion = prompt("-'V' para calcular velocidad\n-'D' para calcular distancia\n-'T' para calcular tiempo\n-'S' o 'salir' para terminar de usar la calculadora");
-
-    if (eleccion === "V" || eleccion === "v" || eleccion === "velocidad" || eleccion === "Velocidad") {
-        calcularVelocidad();
-        opcionValida = false;
-    } else if (eleccion === "D" || eleccion === "d" || eleccion === "distancia" || eleccion === "Distancia") {
-        calcularDistancia();
-        opcionValida = false;
-    } else if (eleccion === "T" || eleccion === "t" || eleccion === "tiempo" || eleccion === "Tiempo") {
-        calcularTiempo();
-        opcionValida = false;
-    } else if (eleccion === "S" || eleccion === "s" || eleccion === "salir") {
-        alert("Espero que te haya gustado crack\nNos vemos en la proxima pre-entrega!!!")
-        opcionValida = true;
-    } else {
-        alert("No me ingreses cualquier cosa, no doy para tanto:v (por ahora)\nVamos a intentar de nuevo👍")
+class Platos{
+    constructor(id, comida, precio, descripcion, imagen){
+        this.id = id;
+        this.comida = comida;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
     }
 }
 
-function calcularVelocidad() {
-    alert("Queres calcular tu velocidad? Perfecto, vamos a calcularlo");
-    let distancia = parseInt(prompt("Primero, necesito que me digas cuanta distancia recorriste"));
-    let tiempo = parseInt(prompt("Y por ultimo, necesito que me digas en cuanto tiempo recorriste esa distancia"));
-    let calculoVelocidad = distancia / tiempo;
-    alert(`Tu velocidad es de ${calculoVelocidad} m/s`);
+const platos = [
+    new Platos(1, 'hamburguesa', 1200, 'hamburguesa con papas bien grande', './img/hamburguesa.jfif'),
+    new Platos(2, 'tacos', 1600, 'tres tacos con un relleno riquisimo', './img/tacos.jfif'),
+    new Platos(3, 'ensalada de sushi', 1350, 'ensalada de sushi DEL ORIENTE', './img/sushi.jfif'),
+    new Platos(4, 'ratatuil', 950, 'ratauil colorido', './img/rata.jfif'),
+    new Platos(5, 'brochet de camarones', 800, 'brochet maritimo', './img/brochet.jfif'),
+    new Platos(6, 'picada fuerte', 5600, 'picada para 5 personas', './img/picada.jfif')
+];
+
+const plateContainer = document.querySelector('#plate-container');
+
+
+platos.forEach(plato => {
+    const platoDiv = document.createElement('div');
+    platoDiv.innerHTML = `
+    <article class="menu">
+        <div class="info-comida">
+            <img src="${plato.imagen}">
+            <h2>${plato.comida}</h2>
+            <p>$${plato.precio}</p>
+            <p>${plato.descripcion}</p>
+        </div>
+        <button class="boton-carrito">Agregar al carrito</button>
+    </article>
+    `;
+
+    plateContainer.appendChild(platoDiv);
+
+
+    const cartBtn = platoDiv.querySelector('.boton-carrito');
+    cartBtn.addEventListener('click', () => {
+
+        carrito.push(plato);
+        guardarCarrito(carrito); 
+        mostrarCarrito()
+    });
+})
+
+const verCartBtn = document.getElementById('ver-carrito');
+    
+    
+function guardarCarrito(carrito){
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-function calcularDistancia() {
-    alert("Queres calcular la distancia que recorriste? Perfecto, vamos a calcularlo");
-    let velocidad = parseInt(prompt("Primero, necesito que me digas a que velocidad ibas"));
-    let tiempo = parseInt(prompt("Y por ultimo, necesito que me digas por cuanto tiempo fuiste a esa velocidad"));
-    let calculoDistancia = velocidad * tiempo;
-    alert(`El distancia que recorriste es de ${calculoDistancia} m`);
+function mostrarCarrito(){
+    const modalContainer = document.getElementById('modal-container');
+    // Esto se hace para ver si el carrito existe en el localStorage y si esta guardado
+    const carritoSaved = localStorage.getItem('carrito');
+
+    let totalPrice = 0;
+
+    if (carritoSaved){
+        const carritoParsed = JSON.parse(carritoSaved);
+        carritoParsed.forEach((plato) => {
+            const platoDiv = document.createElement('div');
+            platoDiv.innerHTML = `
+            <div class="flex-modal">
+            <img src="${plato.imagen}">
+                <div class="flex-modal-info">
+                    <h2>${plato.comida}</h2>
+                    <h3>${plato.descripcion}</h3>
+                    <p>$${plato.precio}</p>
+                </div>
+            </div>
+            <button class="delete">Eliminar del carrito</button>
+            `;
+
+            modalContainer.appendChild(platoDiv)
+            totalPrice += plato.precio;
+        })
+    }
+
+    const totalPriceElement = document.createElement('p');
+    totalPriceElement.textContent = `Precio total: $${totalPrice.toFixed(2)}`;
+    modalContainer.appendChild(totalPriceElement);
+    debugger
+    // delete plato
+    const deleteBtn = document.getElementsByClassName('delete');
+    deleteBtn.addEventListener('click', ()=> {
+        deletePlate(index);
+        platoDiv.remove();
+        totalPrice -= plato.precio;
+    });
 }
 
-function calcularTiempo() {
-    alert("Queres calcular el tiempo que tardaste? Perfecto, vamos a calcularlo");
-    let distancia = parseInt(prompt("Primero, necesito que me digas cuanta distancia recorriste"));
-    let velocidad = parseInt(prompt("Y por ultimo, necesito que me digas a que velocidad ibas"));
-    let calculoTiempo = distancia / velocidad;
-    alert(`El tiempo que tardaste es de ${calculoTiempo} s`);
-}
+
+
+    // const ulNav = document.querySelector('.ul-nav');
+    // const li = document.createElement('li');
+    // li.innerHTML = `
+    //     <li class="contador">${carrito.length}</li>
+    // `;
+    
+    // ulNav.appendChild(li);
