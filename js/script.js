@@ -21,7 +21,6 @@ const platos = [
 
 const plateContainer = document.querySelector('#plate-container');
 
-
 platos.forEach(plato => {
     const platoDiv = document.createElement('div');
     platoDiv.innerHTML = `
@@ -46,10 +45,7 @@ platos.forEach(plato => {
         guardarCarrito(carrito); 
         mostrarCarrito()
     });
-})
-
-const verCartBtn = document.getElementById('ver-carrito');
-    
+})    
     
 function guardarCarrito(carrito){
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -64,31 +60,30 @@ function mostrarCarrito(){
 
     if (carritoSaved){
         const carritoParsed = JSON.parse(carritoSaved);
-        carritoParsed.forEach((plato) => {
+        modalContainer.innerHTML = ``;
+        carritoParsed.forEach((plato, index) => {
             const platoDiv = document.createElement('div');
+            platoDiv.innerHTML = ``;
             platoDiv.innerHTML = `
-            <div class="flex-modal">
             <img src="${plato.imagen}">
                 <div class="flex-modal-info">
                     <h2>${plato.comida}</h2>
                     <h3>${plato.descripcion}</h3>
                     <p>$${plato.precio}</p>
                 </div>
-            </div>
             <button class="delete">Eliminar del carrito</button>
             `;
 
-            modalContainer.appendChild(platoDiv)
+            modalContainer.appendChild(platoDiv);
             totalPrice += plato.precio;
         })
-    }
-
+        
     const totalPriceElement = document.createElement('p');
-    totalPriceElement.textContent = `Precio total: $${totalPrice.toFixed(2)}`;
+    totalPriceElement.textContent = `Precio total: $${totalPrice}`;
     modalContainer.appendChild(totalPriceElement);
-    debugger
+    }
     // delete plato
-    const deleteBtn = document.getElementsByClassName('delete');
+    const deleteBtn = document.querySelector('.delete');
     deleteBtn.addEventListener('click', ()=> {
         deletePlate(index);
         platoDiv.remove();
