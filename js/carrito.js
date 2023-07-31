@@ -62,28 +62,32 @@ function mostrarCarrito() {
         modalContainer.style.justifyContent = "space-between";
         totalPrice += plato.precio * plato.cantidad;
 
-        let deletePlato = platoDiv.querySelector('.delete');
-        deletePlato.addEventListener('click', () => {
-            const foundId = carrito.find((id) => plato.id === id);
 
-            carrito.filter((carritoId) => {
-                return carritoId !== foundId;
-            });
-
-            platoDiv.remove(foundId)
-            mostrarCarrito();
-        });
-
+        // aumentar cantidad de productos
         const sumar = platoDiv.querySelector('.suma');
         sumar.addEventListener('click', () => {
             plato.cantidad++;
             mostrarCarrito();
         });
 
+        // restar cantidad de productos
         const restar = platoDiv.querySelector('.resta');
         restar.addEventListener('click', () => {
             if (plato.cantidad > 1) {
                 plato.cantidad--;
+                mostrarCarrito();
+            }
+        });
+
+        // eliminar platos del carrito
+        const deletePlato = platoDiv.querySelector('.delete');
+        deletePlato.addEventListener('click', () => {
+            const index = carrito.indexOf(plato);
+
+            if (index !== -1) {
+                carrito.splice(index, 1);
+                guardarCarrito(carrito);
+                carritoCounter();
                 mostrarCarrito();
             }
         });
@@ -93,60 +97,26 @@ function mostrarCarrito() {
     const footer = document.createElement('div');
     footer.innerHTML = `
         <p style="padding: 10px;">Precio total: <strong>$${totalPrice}</strong></p>
-        <button class="btn-finalizar">Comprar</button>
-        <button class="btn-limpiar">Eliminar carrito</button>
         `;
     footer.className = 'modalFooter';
     modalContainer.append(footer);
     comprar();
 }
 
+// contador de productos en el carrito
 const carritoCounter = () => {
     cantidadCarrito.style.display = "block";
-  
+
     const carritoLength = carrito.length;
-  
+
     localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
-  
+
     cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
-  };
-  
+};
 
 
 
-const comprar = () => {
-    let comprarBtn = document.querySelector('.btn-finalizar');
-    comprarBtn.addEventListener('click', () => {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-        Toast.fire({
-            icon: 'success',
-            title: 'Tu carrito ya está vacío'
-          })
-          localStorage.removeItem('carritoLength');
-        localStorage.removeItem('carrito');
-        mostrarCarrito();
-        guardarCarrito();
-});
-}
 
-// function eliminarPlato(id) {
-
-    
-    
-
-//     mostrarCarrito();
-
-// }
 
 
 

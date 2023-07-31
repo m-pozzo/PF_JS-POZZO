@@ -2,10 +2,11 @@ const carritoBtn = document.getElementById("ver-carrito");
 const plateContainer = document.querySelector('#plate-container');
 const modalContainer = document.getElementById('modalContainer');
 const cantidadCarrito = document.getElementById('contadorCarrito');
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const carritoGetLocal = localStorage.getItem("carrito");
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 async function obtenerPlatos (){
-    return await fetch('./JSON/platos.json')
+    return fetch('../JSON/platos.json')
         .then (response => response.json())
         .then(plato => {
             const comida = plato.comida;
@@ -28,7 +29,6 @@ async function obtenerPlatos (){
                 `;
             
                 plateContainer.appendChild(platoDiv);
-            
             
                 const agregarBtn = platoDiv.querySelector('.agregar-carrito');
                 agregarBtn.addEventListener('click', () => {
