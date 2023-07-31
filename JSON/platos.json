@@ -1,0 +1,53 @@
+[
+
+    {
+        "id": 1,
+        "comida": "hamburguesa",
+        "precio": 1200,
+        "descripcion": "hamburguesa con papas bien grande",
+        "imagen": "../img/hamburguesa.jfif",
+        "cantidad": 1
+    },
+    {
+        "id": 2,
+        "comida": "tacos",
+        "precio": 1600,
+        "descripcion": "tres tacos con un relleno riquisimo",
+        "imagen": "../img/tacos.jfif",
+        "cantidad": 1
+    },
+    {
+        "id": 3,
+        "comida": "ensalada de sushi",
+        "precio": 1350,
+        "descripcion": "ensalada de sushi DEL ORIENTE",
+        "imagen": "../img/sushi.jfif",
+        "cantidad": 1
+    },
+    {
+        "id": 4,
+        "comida": "ratatuil",
+        "precio": 950,
+        "descripcion": "ratauil colorido",
+        "imagen": "../img/rata.jfif",
+        "cantidad": 1
+    },
+    {
+        "id": 5,
+        "comida": "brochet de camarones",
+        "precio": 800,
+        "descripcion": "brochet maritimo",
+        "imagen": "../img/brochet.jfif",
+        "cantidad": 1
+    },
+    {
+        "id": 6,
+        "comida": "picada fuerte",
+        "precio": 5600,
+        "descripcion": "picada para 5 personas",
+        "imagen": "../img/picada.jfif",
+        "cantidad": 1
+    }
+
+]
+    

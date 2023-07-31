@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Caprasimo', cursive;
+    font-family: 'Nabla', cursive;
+    font-family: 'Questrial', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .nav {
@@ -14,7 +16,7 @@
 .ul-nav {
     height: 100%;
     display: flex;
-    justify-content: end;    
+    justify-content: end;
     align-items: center;
     list-style: none;
 }
@@ -22,10 +24,22 @@
 .item-ul {
     padding: 0 20px;
     font-size: 1.2rem;
+    display: inline;
 }
 
 .a-ul {
     text-decoration: none;
+
+}
+
+.contador-carrito {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 33px;
+    border-radius: 50px;
+    padding: 2px 5px;
+    background-color: red;
 
 }
 
@@ -49,14 +63,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation-name: colores;
-    animation-duration: 1s;
-    animation-delay: 0s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
 }
 
-p{
+p {
     font-size: 1.1rem;
 }
 
@@ -64,6 +73,10 @@ img {
     width: 300px;
     height: 200px;
     padding-top: 5px;
+}
+
+span {
+    display: inline;
 }
 
 .info-comida {
@@ -74,35 +87,24 @@ img {
     padding-bottom: 5px;
 }
 
-.boton-carrito {
+.agregar-carrito {
     width: 100%;
     height: 30px;
     border-radius: 0px;
 }
 
-.boton-carrito:hover {
+.agregar-carrito:hover,
+.boton-carrito:hover,
+.btn-finalizar:hover,
+.delete:hover {
     background-color: #ddd;
 }
 
-#modal-container {
-    width: 450px;
-}
-
-.flex-modal {
-    display: flex;
-    flex-direction: row;
-}
-
-.flex-modal-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 5px;
-}
-
-.delete {
-    width: 90%;
-    height: 40px;
+.agregar-carrito:active,
+.boton-carrito:active,
+.btn-finalizar:active,
+.delete:active {
+    background-color: #bbb;
 }
 
 footer {
@@ -111,32 +113,84 @@ footer {
     margin-top: 24px;
 }
 
-@keyframes colores {
-    0% {
-        border: 2px solid red;
-    }
-    10% {
-        border: 2px solid blue;
-    }
-    20% {
-        border: 2px solid green;
-    }
-    30% {
-        border: 2px solid rgb(29, 137, 205);
-    }
-    40% {
-        border: 2px solid blueviolet;
-    }
-    50% {
-        border: 2px solid darkgoldenrod;
-    }
-    60% {
-        border: 2px solid #b564f3;
-    }
-    80% {
-        border: 2px solid deepskyblue;
-    }
-    100% {
-        border: 2px solid yellow;
-    }
+/* estilos del modal */
+
+.modal-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    max-height: 90vh;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 2%, rgba(239, 244, 249, 1) 55%, rgba(198, 236, 244, 1) 100%);
+    border: 2px black solid;
+    border-radius: 10px;
+    display: none;
+    z-index: 999;
+}
+
+.header-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px black solid;
+    padding: 15px;
+}
+
+.cerrar-modal {
+    cursor: pointer;
+}
+
+.container-platos {
+    overflow-y: auto;
+}
+
+.flex-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px black groove;
+    padding: 10px;
+}
+
+.flex-modal>* {
+    width: 80px;
+    font-size: 1.2rem;
+}
+
+.flex-modal:nth-last-child(1) {
+    border: 0px solid black;
+}
+
+.img-modal {
+    width: 150px;
+    height: 100px;
+}
+
+.suma,
+.resta {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete {
+    width: 90px;
+    height: 50px;
+    font-size: 0.9rem;
+}
+
+.modalFooter {
+    border-top: black 2px solid;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-finalizar {
+    margin: 6px 6px 6px 0;
+    padding: 3px;
 }
