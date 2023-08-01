@@ -73,6 +73,7 @@ function mostrarCarrito() {
         const sumar = platoDiv.querySelector('.suma');
         sumar.addEventListener('click', () => {
             plato.cantidad++;
+            guardarCarrito(carrito);
             mostrarCarrito();
         });
 
@@ -81,6 +82,7 @@ function mostrarCarrito() {
         restar.addEventListener('click', () => {
             if (plato.cantidad > 1) {
                 plato.cantidad--;
+                guardarCarrito(carrito);
                 mostrarCarrito();
             }
         });
