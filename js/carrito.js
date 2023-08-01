@@ -123,12 +123,13 @@ function mostrarCarrito() {
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
-                timer: 1700,
+                timer: 2300,
                 timerProgressBar: true,
             })
             Toast.fire({
                 icon: 'success',
-                title: 'Compra realizada con exito'
+                title: 'Compra realizada con exito',
+                footer: `Ha pagado $${totalPrice}`
             })
 
             carrito = [];
@@ -139,30 +140,44 @@ function mostrarCarrito() {
 
             setTimeout(() => {
                 comprarBtn.disabled = false;
-            }, 1700);
+            }, 2300);
         }
 
     });
 
     let limpiarBtn = document.querySelector('.btn-limpiar');
     limpiarBtn.addEventListener('click', () => {
-        carrito = [];
-        guardarCarrito(carrito);
-        carritoCounter();
-        modalContainer.style.display = 'none';
-        openModal = false;
+        if (carrito.length == 0) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2300,
+                timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'error',
+                title: 'No hay productos en el carrito'
+            })
+        } else {
+            carrito = [];
+            guardarCarrito(carrito);
+            carritoCounter();
+            modalContainer.style.display = 'none';
+            openModal = false;
 
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2300,
-            timerProgressBar: true,
-        })
-        Toast.fire({
-            icon: 'success',
-            title: 'Todos los productos fueron eliminados con exito'
-        })
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2300,
+                timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'success',
+                title: 'Todos los productos fueron eliminados con exito',
+            })
+        }
     });
 }
 
