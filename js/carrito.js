@@ -35,6 +35,7 @@ function mostrarCarrito() {
         const cerrarModal = document.getElementById('cerrarModal');
         cerrarModal.addEventListener('click', () => {
             modalContainer.style.display = 'none';
+            openModal = false;
         });
     };
     Close();
@@ -135,6 +136,9 @@ function mostrarCarrito() {
             carrito = [];
             guardarCarrito(carrito);
             carritoCounter();
+            carrito.forEach(() => {
+                plato.cantidad = 0;
+            })
             modalContainer.style.display = 'none';
             openModal = false;
 
