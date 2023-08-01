@@ -15,7 +15,10 @@ carritoBtn.addEventListener('click', () => {
     }
 });
 
+let openModal = false;
+
 function mostrarCarrito() {
+    openModal = true;
     let totalPrice = 0;
     modalContainer.innerHTML = ``;
     const header = document.createElement('div');
