@@ -2,7 +2,6 @@ const carritoBtn = document.getElementById("ver-carrito");
 const plateContainer = document.querySelector('#plate-container');
 const modalContainer = document.getElementById('modalContainer');
 const cantidadCarrito = document.getElementById('contadorCarrito');
-const carritoGetLocal = localStorage.getItem("carrito");
 let carrito = JSON.parse(localStorage.getItem('carrito')) || []; 
 
 async function obtenerPlatos (){

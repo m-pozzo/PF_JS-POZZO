@@ -135,6 +135,7 @@ function mostrarCarrito() {
             guardarCarrito(carrito);
             carritoCounter();
             modalContainer.style.display = 'none';
+            openModal = false;
 
             setTimeout(() => {
                 comprarBtn.disabled = false;
@@ -149,6 +150,7 @@ function mostrarCarrito() {
         guardarCarrito(carrito);
         carritoCounter();
         modalContainer.style.display = 'none';
+        openModal = false;
 
         const Toast = Swal.mixin({
             toast: true,
