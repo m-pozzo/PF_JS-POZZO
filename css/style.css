@@ -190,7 +190,7 @@ footer {
     justify-content: space-between;
 }
 
-.btn-finalizar {
+.btn-finalizar, .btn-limpiar {
     margin: 6px 6px 6px 0;
     padding: 3px;
 }

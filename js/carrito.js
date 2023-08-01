@@ -63,6 +63,8 @@ function mostrarCarrito() {
         totalPrice += plato.precio * plato.cantidad;
 
 
+
+
         // aumentar cantidad de productos
         const sumar = platoDiv.querySelector('.suma');
         sumar.addEventListener('click', () => {
@@ -85,7 +87,11 @@ function mostrarCarrito() {
             const index = carrito.indexOf(plato);
 
             if (index !== -1) {
-                carrito.splice(index, 1);
+                if (plato.cantidad <= 1) {
+                    carrito.splice(index, 1);
+                    plato.cantidad++;
+                }
+                plato.cantidad--;
                 guardarCarrito(carrito);
                 carritoCounter();
                 mostrarCarrito();
@@ -93,14 +99,66 @@ function mostrarCarrito() {
         });
     });
 
-
     const footer = document.createElement('div');
     footer.innerHTML = `
         <p style="padding: 10px;">Precio total: <strong>$${totalPrice}</strong></p>
+        <div>
+            <button class="btn-finalizar">Comprar</button>
+            <button class="btn-limpiar">Limpiar carrito</button>
+        </div>
         `;
     footer.className = 'modalFooter';
     modalContainer.append(footer);
-    comprar();
+
+    // comprar los productos
+    let comprarBtn = document.querySelector('.btn-finalizar');
+    comprarBtn.addEventListener('click', () => {
+        if (carrito.length > 0) {
+            comprarBtn.disabled = true;
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1700,
+                timerProgressBar: true,
+            })
+            Toast.fire({
+                icon: 'success',
+                title: 'Compra realizada con exito'
+            })
+
+            carrito = [];
+            guardarCarrito(carrito);
+            carritoCounter();
+            modalContainer.style.display = 'none';
+
+            setTimeout(() => {
+                comprarBtn.disabled = false;
+            }, 1700);
+        }
+
+    });
+
+    let limpiarBtn = document.querySelector('.btn-limpiar');
+    limpiarBtn.addEventListener('click', () => {
+        carrito = [];
+        guardarCarrito(carrito);
+        carritoCounter();
+        modalContainer.style.display = 'none';
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2300,
+            timerProgressBar: true,
+        })
+        Toast.fire({
+            icon: 'success',
+            title: 'Todos los productos fueron eliminados con exito'
+        })
+    });
 }
 
 // contador de productos en el carrito

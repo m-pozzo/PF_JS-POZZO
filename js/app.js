@@ -3,7 +3,7 @@ const plateContainer = document.querySelector('#plate-container');
 const modalContainer = document.getElementById('modalContainer');
 const cantidadCarrito = document.getElementById('contadorCarrito');
 const carritoGetLocal = localStorage.getItem("carrito");
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let carrito = JSON.parse(localStorage.getItem('carrito')) || []; 
 
 async function obtenerPlatos (){
     return fetch('../JSON/platos.json')
@@ -76,6 +76,12 @@ async function obtenerPlatos (){
 
 function guardarCarrito(carrito){
     localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function reloadCarrito(){
+    carrito.forEach((plato) => {
+        mostrarCarrito(plato);
+    })
 }
 
 obtenerPlatos(); 
