@@ -20,7 +20,7 @@ async function obtenerPlatos (){
                     <div class="info-comida">
                         <img src="${plato.imagen}">
                         <h2>${plato.comida}</h2>
-                        <p>$${plato.precio}</p>
+                        <p class="precio">$${plato.precio}</p>
                         <p>${plato.descripcion}</p>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>

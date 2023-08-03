@@ -9,7 +9,8 @@
     <link rel="icon" type="image/x-icon" href="./img/SDLG_PacMan.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nabla&family=Oswald:wght@300&family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&family=Oswald:wght@300&family=Questrial&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -19,21 +20,36 @@
     <div id="bodyError">
         <header>
             <nav class="nav">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Sdlg.png" alt="sdlg logo" class="sdlg">
                 <ul class="ul-nav">
-                    <li class="item-ul"><a href="" class="a-ul">Nosotros</a></li>
-                    <li class="item-ul"><a href="" class="a-ul">Platos</a></li>
+                    <li class="item-ul"><a href="#nosotros" class="a-ul">Nosotros</a></li>
+                    <li class="item-ul"><a href="#plate-container" class="a-ul">Platos</a></li>
                     <li class="item-ul"><button id="ver-carrito">🛒</button></li>
                     <span id="contadorCarrito" class="contador-carrito"></span>
                 </ul>
             </nav>
         </header>
         <main>
-            <section id="modalContainer" class="modal-container"></section>
+            <div id="nosotros" style="width: 100%; height: 11vh;"></div>
+            <section class="nosotros">
+                <article class="article-nosotros">
+                    <h2>¿Quienes somos?</h2>
+                    <p style="font-size: 1.4rem;">
+                        Somos un simple sitio web para que puedas ordenar lo que mas te guste... <span>(para comer
+                            obvio)</span>
+                    </p>
+                    <p style="font-size: 3rem; margin: 15px 0;">
+                        Al mejor precio!
+                    </p>
+                    <a href="#plate-container"><button class="agregar-carrito ver-platos">Ver todos los platos</button></a>
+                </article>
+            </section>
             <section id="plate-container" class="grid-cards"></section>
+            <section id="modalContainer" class="modal-container"></section>
         </main>
         <footer>
-            <section>
-                <p>elresto@gmail.com</p>
+            <section class="section-footer">
+                <p>lodelpapu@gmail.com</p>
             </section>
         </footer>
     </div>

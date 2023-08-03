@@ -2,23 +2,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Nabla', cursive;
-    font-family: 'Questrial', sans-serif;
     font-family: 'Oswald', sans-serif;
 }
 
-.nav {
-    width: 100%;
-    height: 10vh;
-    border-bottom: 3px black solid;
+html {
+    scroll-behavior: smooth;
 }
 
-.ul-nav {
-    height: 100%;
+body {
+    background-color: #8e8f92;
+}
+
+.nav {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
-    list-style: none;
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    background-color: #3c3e44;
+    border-bottom: 3px rgb(192, 89, 89) solid;
+}
+
+.sdlg {
+    width: 70px;
+    height: 60px;
+    padding-left: 10px;
 }
 
 .item-ul {
@@ -29,7 +38,7 @@
 
 .a-ul {
     text-decoration: none;
-
+    color: #fff7e1;
 }
 
 .contador-carrito {
@@ -39,7 +48,7 @@
     top: 33px;
     border-radius: 50px;
     padding: 2px 5px;
-    background-color: red;
+    background-color: #ff0000;
 
 }
 
@@ -48,31 +57,102 @@
     font-size: 1.5rem;
 }
 
+.nosotros {
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    margin: auto;
+}
+
+.article-nosotros {
+    min-width: 300px;
+    max-width: 800px;
+    color: #fff7e1;
+    background-color: #3c3e44;
+    padding: 30px;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.article-nosotros>h2 {
+    text-decoration: underline;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.article-nosotros>p>span {
+    background-color: rgb(168, 75, 75);
+
+}
+
+.ver-platos {
+    font-size: 2rem;
+    min-width: 300px !important;
+    max-width: 400px;
+    height: 50px !important;
+    padding: 0 10px 10px 10px !important;
+}
+
+.ver-platos>a {
+    color: #fff7e1;
+    text-decoration: none;
+}
+
 .grid-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit,
+            minmax(275px,
+                1fr));
     align-items: center;
     justify-items: center;
-    margin-top: 24px;
-    gap: 7px;
+    gap: 20px;
 }
 
 .menu {
-    width: 400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    background-color: #3c3e44;
+    color: #fff7e1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-p {
-    font-size: 1.1rem;
+
+.agregar-carrito {
+    width: 55%;
+    height: 30px;
+    background-color: rgb(212, 95, 95);
+    border: none;
+    border-radius: 20px;
+    margin: 5px 0;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.agregar-carrito:hover, .delete:hover, .btn-limpiar:hover, .btn-finalizar:hover {
+    color: #fff7e1;
+    background-color: rgb(168, 75, 75);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.agregar-carrito:active, .delete:active, .btn-limpiar:active, .btn-finalizar:active {
+    color: #fff7e1;
+    background-color: rgb(252, 175, 175);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.precio {
+    width: 100%;
+    text-align: center;
+    background-color: #252527;
 }
 
 img {
-    width: 300px;
-    height: 200px;
-    padding-top: 5px;
+    width: 250px;
+    height: 170px;
 }
 
 span {
@@ -87,44 +167,31 @@ span {
     padding-bottom: 5px;
 }
 
-.agregar-carrito {
-    width: 100%;
-    height: 30px;
-    border-radius: 0px;
-}
-
-.agregar-carrito:hover,
-.boton-carrito:hover,
-.btn-finalizar:hover,
-.delete:hover {
-    background-color: #ddd;
-}
-
-.agregar-carrito:active,
-.boton-carrito:active,
-.btn-finalizar:active,
-.delete:active {
-    background-color: #bbb;
-}
-
 footer {
-    height: 15vh;
-    border-top: 3px black solid;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    background-color: #3c3e44;
+    border-top: 3px rgb(192, 89, 89) solid;
     margin-top: 24px;
 }
 
-/* estilos del modal */
+.section-footer {
+    margin: auto;
+    color: #fff7e1;
+}
+
+/* Estilos del modal */
 
 .modal-container {
-    position: absolute;
+    max-height: 90vh;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60vw;
-    max-height: 90vh;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 2%, rgba(239, 244, 249, 1) 55%, rgba(198, 236, 244, 1) 100%);
-    border: 2px black solid;
+    color: #fff7e1;
+    background: #53545a;
+    border: 3px rgb(192, 89, 89) solid;
     border-radius: 10px;
     display: none;
     z-index: 999;
@@ -134,7 +201,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 2px black solid;
+    border-bottom: 3px rgb(192, 89, 89) solid;
     padding: 15px;
 }
 
@@ -149,10 +216,10 @@ footer {
 .flex-modal {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
-    border-bottom: 1px black groove;
+    border-bottom: 2px rgb(192, 89, 89) solid;
     padding: 10px;
 }
 
@@ -162,7 +229,7 @@ footer {
 }
 
 .flex-modal:nth-last-child(1) {
-    border: 0px solid black;
+    border: 0px;
 }
 
 .img-modal {
@@ -176,21 +243,66 @@ footer {
     font-weight: bold;
 }
 
+.suma {
+    padding-right: 10px;
+}
+
+.resta {
+    padding-left: 10px;
+}
+
 .delete {
     width: 90px;
     height: 50px;
+    background-color: rgb(212, 95, 95);
+    border: none;
+    border-radius: 3px;
+    transition: all 0.3s;
     font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .modalFooter {
-    border-top: black 2px solid;
+    border-top: 3px rgb(192, 89, 89) solid;
     margin-top: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.btn-finalizar, .btn-limpiar {
+.btn-finalizar,
+.btn-limpiar {
     margin: 6px 6px 6px 0;
     padding: 3px;
+    background-color: rgb(212, 95, 95);
+    border: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.cantidad {
+    width: 180px;
+}
+@media (max-width: 415px){
+    .modal-container{
+        width: 80%;
+    }
+
+    .flex-modal{
+        flex-direction: column;
+    }
+
+    .cantidad {
+        width: 180px;
+    }
+}
+
+@media (min-width: 415px){
+    .flex-modal{
+        flex-direction: row;
+    }
+    .modal-container{
+        width: 80%;
+    }
 }

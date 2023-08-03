@@ -35,6 +35,7 @@ function mostrarCarrito() {
         const cerrarModal = document.getElementById('cerrarModal');
         cerrarModal.addEventListener('click', () => {
             modalContainer.style.display = 'none';
+            document.body.style.overflow = 'auto';
             openModal = false;
         });
     };
@@ -52,9 +53,7 @@ function mostrarCarrito() {
         platoDiv.innerHTML = `
             <img src="${plato.imagen}" class="img-modal">
             <h2>${plato.comida}</h2>
-            <span class="suma">+</span>
-            <p><u>Cantidad</u>: ${plato.cantidad}</p>
-            <span class="resta">-</span>
+            <p class="cantidad"><span class="suma">+</span><u>Cantidad</u>: ${plato.cantidad} <span class="resta">-</span></p>
             <p>$${plato.precio * plato.cantidad}</p>
             <button class="delete">Eliminar del carrito</button>
             `;
@@ -64,6 +63,7 @@ function mostrarCarrito() {
         modalContainer.style.display = "flex";
         modalContainer.style.flexDirection = "column";
         modalContainer.style.justifyContent = "space-between";
+        document.body.style.overflow = 'hidden';
         totalPrice += plato.precio * plato.cantidad;
 
 
@@ -101,6 +101,15 @@ function mostrarCarrito() {
                 guardarCarrito(carrito);
                 carritoCounter();
                 mostrarCarrito();
+                Toastify({
+                    text: "Producto eliminado",
+                    className: "info",
+                    position: "left",
+                    stopOnFocus: true,
+                    style: {
+                        background: "linear-gradient(to right, #df4233, #f43933)",
+                    }
+                }).showToast();
             }
         });
     });
@@ -142,6 +151,7 @@ function mostrarCarrito() {
                 plato.cantidad = 0;
             })
             modalContainer.style.display = 'none';
+            document.body.style.overflow = 'auto';
             openModal = false;
 
             setTimeout(() => {
@@ -170,6 +180,7 @@ function mostrarCarrito() {
             guardarCarrito(carrito);
             carritoCounter();
             modalContainer.style.display = 'none';
+            document.body.style.overflow = 'auto';
             openModal = false;
 
             const Toast = Swal.mixin({

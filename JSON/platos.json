@@ -2,52 +2,83 @@
 
     {
         "id": 1,
-        "comida": "hamburguesa",
+        "comida": "Hamburguesa",
         "precio": 1200,
-        "descripcion": "hamburguesa con papas bien grande",
+        "descripcion": "Hamburguesa con papas bien grande",
         "imagen": "../img/hamburguesa.jfif",
         "cantidad": 1
     },
     {
         "id": 2,
-        "comida": "tacos",
+        "comida": "Tacos",
         "precio": 1600,
-        "descripcion": "tres tacos con un relleno riquisimo",
+        "descripcion": "Tres tacos con un relleno riquisimo",
         "imagen": "../img/tacos.jfif",
         "cantidad": 1
     },
     {
         "id": 3,
-        "comida": "ensalada de sushi",
+        "comida": "Ensalada de sushi",
         "precio": 1350,
-        "descripcion": "ensalada de sushi DEL ORIENTE",
+        "descripcion": "Ensalada de sushi DEL ORIENTE",
         "imagen": "../img/sushi.jfif",
         "cantidad": 1
     },
     {
         "id": 4,
-        "comida": "ratatuil",
+        "comida": "Ratatouille",
         "precio": 950,
-        "descripcion": "ratauil colorido",
+        "descripcion": "Ratatouille colorido",
         "imagen": "../img/rata.jfif",
         "cantidad": 1
     },
     {
         "id": 5,
-        "comida": "brochet de camarones",
+        "comida": "Brochet de camarones",
         "precio": 800,
-        "descripcion": "brochet maritimo",
+        "descripcion": "Brochet maritimo",
         "imagen": "../img/brochet.jfif",
         "cantidad": 1
     },
     {
         "id": 6,
-        "comida": "picada fuerte",
+        "comida": "Picada fuerte",
         "precio": 5600,
-        "descripcion": "picada para 5 personas",
+        "descripcion": "Picada para 5 personas",
         "imagen": "../img/picada.jfif",
         "cantidad": 1
+    },
+    {
+        "id": 7,
+        "comida": "Cono de papas",
+        "precio": 450,
+        "descripcion": "Unas buenas papas en cono",
+        "imagen": "../img/conito.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 8,
+        "comida": "Pizza con rucula",
+        "precio": 1050,
+        "descripcion": "Pizza a la piedra con rucula encima",
+        "imagen": "../img/pizza.jfif",
+        "cantidad": 1
+    },
+    {
+        "id": 9,
+        "comida": "Tortilla de papa",
+        "precio": 700,
+        "descripcion": "Tortilla de papa con morron y queso",
+        "imagen": "../img/tortilla.jfif",
+        "cantidad": 1
+    },
+    {
+        "id": 10,
+        "comida": "Bombon helado",
+        "precio": 200,
+        "descripcion": "Palito bombon helado",
+        "imagen": "../img/helado.jfif",
+        "cantidad": 1
     }
-
 ]
     
