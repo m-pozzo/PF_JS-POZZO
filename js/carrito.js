@@ -144,6 +144,9 @@ function mostrarCarrito() {
                 footer: `Ha pagado $${totalPrice}`
             })
 
+            carrito.forEach((plato) =>{
+                plato.cantidad = 1;
+            });
             carrito = [];
             guardarCarrito(carrito);
             carritoCounter();
@@ -161,6 +164,7 @@ function mostrarCarrito() {
 
     });
 
+    // boton para borrar todo el carrito
     let limpiarBtn = document.querySelector('.btn-limpiar');
     limpiarBtn.addEventListener('click', () => {
         if (carrito.length == 0) {
@@ -176,13 +180,15 @@ function mostrarCarrito() {
                 title: 'No hay productos en el carrito'
             })
         } else {
+            carrito.forEach((plato) =>{
+                plato.cantidad = 1;
+            });
             carrito = [];
             guardarCarrito(carrito);
             carritoCounter();
             modalContainer.style.display = 'none';
             document.body.style.overflow = 'auto';
             openModal = false;
-
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',

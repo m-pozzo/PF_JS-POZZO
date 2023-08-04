@@ -29,7 +29,7 @@
         "comida": "Ratatouille",
         "precio": 950,
         "descripcion": "Ratatouille colorido",
-        "imagen": "../img/rata.jfif",
+        "imagen": "../img/rata.webp",
         "cantidad": 1
     },
     {
